@@ -1,20 +1,20 @@
 #!/usr/bin/env python
-import app
+from app import app
 import unittest
-from flask import url_for
 
 
 class AppTestCase(unittest.TestCase):
+    """Sample test case"""
 
     def setUp(self):
-        self.client = app.app.test_client()
+        self.client = app.test_client()
 
     def tearDown(self):
         pass
 
     def test_home(self):
+        """Test home page."""
         response = self.client.get('/')
-        import pdb; pdb.set_trace()
         self.assertTrue(b'Hello Codefellows!' in response.data)
 
 
